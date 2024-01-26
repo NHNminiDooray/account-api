@@ -20,20 +20,15 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/members")
-    public List<Member> getMembers() {
-        return memberService.getMembers();
-    }
-
-    @GetMapping("/members/{id}")
-    public Member getMember(@PathVariable("id") String id){
-        return memberService.getMember(id);
-    }
-
-    @PostMapping("/members")
+    @PostMapping("/members/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Member createMember(@RequestBody Member member) {
-        return memberService.createMember(member);
+    public void createMember(@RequestBody Member member) {
+        System.out.println(member.getMemberId());
+        System.out.println(member.getMemberId());
+        System.out.println(member.getMemberId());
+        System.out.println(member.getMemberId());
+        System.out.println(member);
+        memberService.createMember(member);
     }
 
 }

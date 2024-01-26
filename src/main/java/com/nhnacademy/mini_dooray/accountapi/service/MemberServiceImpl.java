@@ -15,24 +15,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<Member> getMembers() {
-        return memberRepository.findAll();
-    }
-
-
-    @Override
-    public Member getMember(String id) {
-        return memberRepository.findById(id).orElse(null);
-    }
-
-    @Override
     public Member createMember(Member member) {
         Member newMember = new Member();
         newMember.setMemberId(member.getMemberId());
         newMember.setEmail(member.getEmail());
         newMember.setPassword(member.getPassword());
         newMember.setMemberStatus(member.getMemberStatus());
-
         Member saveMember = memberRepository.save(newMember);
         return saveMember;
     }
