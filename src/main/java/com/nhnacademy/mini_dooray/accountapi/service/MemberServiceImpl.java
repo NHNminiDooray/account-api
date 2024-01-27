@@ -1,7 +1,10 @@
 package com.nhnacademy.mini_dooray.accountapi.service;
 
+import com.nhnacademy.mini_dooray.accountapi.entitiy.LoginRequestDto;
+import com.nhnacademy.mini_dooray.accountapi.exception.IncorrectPasswordException;
+import com.nhnacademy.mini_dooray.accountapi.exception.MemberNotFoundException;
 import com.nhnacademy.mini_dooray.accountapi.repository.MemberRepository;
-import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.nhnacademy.mini_dooray.accountapi.entitiy.Member;
 
@@ -23,5 +26,27 @@ public class MemberServiceImpl implements MemberService {
         newMember.setMemberStatus(member.getMemberStatus());
         Member saveMember = memberRepository.save(newMember);
         return saveMember;
+    }
+    @Override
+    public Member loginMember(LoginRequestDto loginRequestDto) {
+        String memberId = loginRequestDto.getMemberId();
+        Optional<Member> optionalMember = memberRepository.findByMemberId(memberId);
+
+        if (optionalMember.isPresent()) {
+            Member member = optionalMember.get();
+            if (passwordMatches(loginRequestDto.getPassword(), member.getPassword())) {
+
+                System.out.println("로그인 성공");
+                return member;
+            } else {
+                throw new IncorrectPasswordException("비밀번호가 일치하지 않습니다.");
+            }
+        } else {
+            throw new MemberNotFoundException("해당하는 멤버를 찾을 수 없습니다.");
+        }
+    }
+
+    private boolean passwordMatches(String inputPassword, String storedPassword) {
+        return inputPassword.equals(storedPassword);
     }
 }
