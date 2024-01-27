@@ -4,6 +4,7 @@ import com.nhnacademy.mini_dooray.accountapi.entitiy.LoginRequestDto;
 import com.nhnacademy.mini_dooray.accountapi.exception.IncorrectPasswordException;
 import com.nhnacademy.mini_dooray.accountapi.exception.MemberNotFoundException;
 import com.nhnacademy.mini_dooray.accountapi.repository.MemberRepository;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import com.nhnacademy.mini_dooray.accountapi.entitiy.Member;
@@ -46,7 +47,14 @@ public class MemberServiceImpl implements MemberService {
         }
     }
 
+    @Override
+    public List<String> findAllMemberIds() {
+        return memberRepository.findAllMemberIds();
+    }
+
     private boolean passwordMatches(String inputPassword, String storedPassword) {
         return inputPassword.equals(storedPassword);
     }
+
+
 }

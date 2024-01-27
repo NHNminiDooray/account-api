@@ -7,4 +7,6 @@ public interface MemberService {
     Member createMember(Member member);
 
     Member loginMember(LoginRequestDto loginRequestDto);
+
+    List<String> findAllMemberIds();
 }
