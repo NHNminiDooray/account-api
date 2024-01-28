@@ -1,5 +1,6 @@
-package com.nhnacademy.mini_dooray.accountapi.entitiy;
+package com.nhnacademy.mini_dooray.accountapi.dto;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequestDto {
-    private String memberId;
-    private String password;
+public class MemberIdsDto {
+    List<String> memberIds;
 }

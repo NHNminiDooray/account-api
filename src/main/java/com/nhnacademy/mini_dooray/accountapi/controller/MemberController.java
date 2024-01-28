@@ -1,8 +1,8 @@
 package com.nhnacademy.mini_dooray.accountapi.controller;
 
-import com.nhnacademy.mini_dooray.accountapi.entitiy.LoginRequestDto;
+import com.nhnacademy.mini_dooray.accountapi.dto.LoginRequestDto;
 import com.nhnacademy.mini_dooray.accountapi.entitiy.Member;
-import com.nhnacademy.mini_dooray.accountapi.entitiy.MemberIdsDto;
+import com.nhnacademy.mini_dooray.accountapi.dto.MemberIdsDto;
 import com.nhnacademy.mini_dooray.accountapi.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,8 +39,8 @@ public class MemberController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.CREATED)
-    public void doLoginMember(@RequestBody LoginRequestDto loginRequestDto) {
-        memberService.loginMember(loginRequestDto);
+    public Member doLoginMember(@RequestBody LoginRequestDto loginRequestDto) {
+        return memberService.loginMember(loginRequestDto);
     }
 
 }

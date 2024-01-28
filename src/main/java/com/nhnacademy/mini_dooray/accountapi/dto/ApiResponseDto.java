@@ -1,4 +1,4 @@
-package com.nhnacademy.mini_dooray.accountapi.entitiy;
+package com.nhnacademy.mini_dooray.accountapi.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

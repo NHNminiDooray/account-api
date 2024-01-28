@@ -1,6 +1,6 @@
 package com.nhnacademy.mini_dooray.accountapi.service;
 
-import com.nhnacademy.mini_dooray.accountapi.entitiy.LoginRequestDto;
+import com.nhnacademy.mini_dooray.accountapi.dto.LoginRequestDto;
 import com.nhnacademy.mini_dooray.accountapi.exception.IncorrectPasswordException;
 import com.nhnacademy.mini_dooray.accountapi.exception.MemberNotFoundException;
 import com.nhnacademy.mini_dooray.accountapi.repository.MemberRepository;
@@ -36,8 +36,6 @@ public class MemberServiceImpl implements MemberService {
         if (optionalMember.isPresent()) {
             Member member = optionalMember.get();
             if (passwordMatches(loginRequestDto.getPassword(), member.getPassword())) {
-
-                System.out.println("로그인 성공");
                 return member;
             } else {
                 throw new IncorrectPasswordException("비밀번호가 일치하지 않습니다.");

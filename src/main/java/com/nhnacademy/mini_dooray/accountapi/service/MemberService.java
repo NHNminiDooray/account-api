@@ -1,5 +1,5 @@
 package com.nhnacademy.mini_dooray.accountapi.service;
-import com.nhnacademy.mini_dooray.accountapi.entitiy.LoginRequestDto;
+import com.nhnacademy.mini_dooray.accountapi.dto.LoginRequestDto;
 import com.nhnacademy.mini_dooray.accountapi.entitiy.Member;
 import java.util.List;
 
