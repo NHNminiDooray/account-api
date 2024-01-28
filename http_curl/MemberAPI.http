@@ -1,0 +1,28 @@
+GET /members
+HOST: localhost:8888
+Content-Type:application/json
+
+###
+
+
+POST /members/create
+HOST: localhost:8888
+Content-Type:application/json
+
+{
+  "email": "testEmail@gmail.com",
+  "memberId": "testIDID",
+  "memberStatus": "활동",
+  "password": "433493829"
+}
+###
+
+
+POST /members/login
+HOST: localhost:8888
+Content-Type:application/json
+
+{
+  "memberId": "testIDID",
+  "password": "433493829"
+}
